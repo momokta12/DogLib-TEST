@@ -45,6 +45,25 @@ namespace DogLib
                 Dogs.Remove(dog);
             }
             return dog;
-        }   
+        }
+
+          // Sort by name
+        public IEnumerable<Dog> SortByName()
+        {
+                return Dogs.OrderBy(dog => dog.Name);
+        }
+
+            // Sort by age
+        public IEnumerable<Dog> SortByAge()
+        {
+                return Dogs.OrderBy(dog => dog.Age);
+        }
+
+            // Filter by name
+        public IEnumerable<Dog> FilterByName(string name)
+        {
+                return Dogs.Where(dog => dog.Name == name);
+        }
+
     }
 }

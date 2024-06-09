@@ -76,5 +76,34 @@ namespace DogLib.Tests
             }
         }
 
+        [TestMethod()]
+        public void SortByName(){
+            DogsRepository dogrepository = new(); // Create a new instance of DogsRepository
+
+            var sortedDogs = dogrepository.SortByName(); // Sort the dogs by name
+
+            Assert.AreEqual("Fido", sortedDogs.First().Name); // Test that the first dog is Fido
+            Assert.AreEqual("Spot", sortedDogs.Last().Name); // Test that the last dog is Spot
+        }
+
+        [TestMethod()]
+        public void SortByAge(){
+            DogsRepository dogrepository = new(); // Create a new instance of DogsRepository
+
+            var sortedDogs = dogrepository.SortByAge(); // Sort the dogs by age
+
+            Assert.AreEqual(2, sortedDogs.First().Age); // Test that the first dog is 2 years old
+            Assert.AreEqual(5, sortedDogs.Last().Age); // Test that the last dog is 5 years old
+        }
+        
+        [TestMethod()]
+        public void FilterByName() {             
+            DogsRepository dogrepository = new(); // Create a new instance of DogsRepository
+
+            var filteredDogs = dogrepository.FilterByName("Fido"); // Filter the dogs by name
+
+            Assert.AreEqual(1, filteredDogs.Count()); // Test that the list contains 1 dog
+            Assert.AreEqual("Fido", filteredDogs.First().Name); // Test that the first dog is Fido
+        }
     }
 }
